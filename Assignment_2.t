@@ -2,6 +2,8 @@ var matrix : array 1 .. 26, 1 .. 26 of string
 var rotn, text, word, cipher, n_value, selection, key : string
 var n, ext, errorCheck, ascii, selection_int, row, col : int
 
+setscreen ("graphics")
+
 ext := 0
 
 % Setting up Procedure to Prompt When the Screen Would be Cleared
@@ -290,6 +292,49 @@ procedure decryptVigenere
     put "Your Plain Text is"
     put word
 end decryptVigenere
+
+loop
+    put "What Theme Would You Like? Enter The Number Corrosponding to the Theme"
+    put ""
+    put "*-----------------*"
+    put "|1 for Light Theme|"
+    put "|2 for Dark Theme |"
+    put "*-----------------*"
+    put ""
+
+    get selection
+    if strintok (selection) = false then
+	put "Please enter a interger"
+    else
+	selection_int := strint (selection)
+	if selection_int < 1 then
+	    cls
+	    put "The number must be between 1 and 2"
+	elsif selection_int = 1 then
+	    cls
+	    for i : 1 .. 25
+		colourback (white)
+		colour (black)
+		put ""
+	    end for
+	    exit
+	elsif selection_int = 2 then
+	    cls
+	    for i : 1 .. 25
+		colourback (black)
+		colour (white)
+		put ""
+	    end for
+	    exit
+	elsif selection_int > 2 then
+	    cls
+	    put "The number must be between 1 and 2"
+	end if
+    end if
+    clearScreen
+end loop
+
+cls
 
 loop
 

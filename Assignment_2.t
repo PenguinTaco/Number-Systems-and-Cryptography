@@ -206,10 +206,18 @@ procedure encryptVigenere
 
     for i : 1 .. length (text)
 	if ord (text (i)) = 65 then
-	    row := 1
+	    if ord (key (i)) = 65 then
+		row := 1
+	    else
+		row := ord (key (i)) - 64
+	    end if
 	    col := 1
 	else
-	    row := ord (key (i)) - 64
+	    if ord (key (i)) = 65 then
+		row := 1
+	    else
+		row := ord (key (i)) - 64
+	    end if
 	    col := ord (text (i)) - 64
 	end if
 	word := word + matrix (row, col)

@@ -301,6 +301,7 @@ loop
     put "|2 for Dark Theme |"
     put "*-----------------*"
     put ""
+    put "Selection: " ..
 
     get selection
     if strintok (selection) = false then
@@ -355,6 +356,7 @@ loop
     put "|5 to exit            |"
     put "*---------------------*"
     put ""
+    put "Selection: " ..
 
     get selection
     if strintok (selection) = false then
